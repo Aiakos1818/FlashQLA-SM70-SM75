@@ -20,7 +20,7 @@ def _load_ext():
     if not torch.cuda.is_available():
         raise RuntimeError("SM70/SM75 legacy GDN backend requires CUDA")
 
-    os.environ.setdefault("TORCH_CUDA_ARCH_LIST", "7.0;7.5")
+    os.environ.setdefault("TORCH_CUDA_ARCH_LIST", "7.5")
     src = Path(__file__).with_name("csrc") / "gdn_forward.cu"
     _EXT = load(
         name="flash_qla_legacy_gdn",
